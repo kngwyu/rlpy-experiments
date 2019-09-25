@@ -6,18 +6,17 @@ import os
 
 from common import run_cli
 
-MAX_STEPS = 10000
-
 
 def main():
     maze = os.path.join(GridWorld.default_map_dir, '11x11-Rooms.txt')
     domain = GridWorld(maze, noise=0.3)
+    max_steps = 10000
 
     def agent_selector(name):
         tabular = Tabular(domain, discretization=20)
         if name is None or name == 'lspi':
             policy = eGreedy(tabular, epsilon=0.1)
-            return LSPI(policy, tabular, domain.discount_factor, MAX_STEPS, 1000)
+            return LSPI(policy, tabular, domain.discount_factor, max_steps, 1000)
         elif name == 'nac':
             return NaturalActorCritic(
                 GibbsPolicy(tabular),
@@ -65,7 +64,7 @@ def main():
     run_cli(
         domain,
         agent_selector,
-        default_max_steps=MAX_STEPS,
+        default_max_steps=max_steps,
         default_num_policy_checks=10,
         default_checks_per_policy=50,
     )
