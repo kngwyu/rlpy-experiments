@@ -12,7 +12,7 @@ def run_cli(
         default_num_policy_checks: int = 10,
         default_checks_per_policy: int = 10,
         **kwargs
-) -> click.Command:
+) -> None:
     @click.group()
     @click.option('--agent', type=str, default=None, help='The name of agent you want to run')
     @click.option('--seed', type=int, default=1, help='The problem to learn')
