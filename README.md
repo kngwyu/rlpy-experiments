@@ -1,7 +1,11 @@
 # What's this
 This repo contains collections of scripts for [rlpy](https://github.com/rlpy/rlpy)
-experiments. Since [my fork of rlpy](https://github.com/kngwyu/rlpy) is now only
-available for Linux and Python >= 3.5, these scripts also doesn't support other systems.
+experiments.
+
+## Requirements
+- Python >= 3.6
+- [rlpy3](https://github.com/kngwyu/rlpy) (My Python3 oriented fork of RLPy)
+- [click](https://click.palletsprojects.com/en/7.x/)
 
 ## Setup
 Install [pipenv](https://pipenv.readthedocs.io/en/latest/) and then
@@ -12,7 +16,7 @@ pipenv --site-packages --three install
 ## Example usages
 
 ```bash
-pipenv run python gridworld.py --max-steps=100000 --agent=ifddk-q train --visualize-performance=1
+pipenv run python gridworld.py --agent=ifddk-q train --visualize-performance=1
 ```
 
 ## Screenshots

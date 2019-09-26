@@ -7,12 +7,12 @@ from typing import Callable, Optional
 
 def run_cli(
         domain: Domain,
-        agent_selector: Callable[[str], Agent],
+        agent_selector: Callable[[str, int], Agent],
         default_max_steps: int = 1000,
         default_num_policy_checks: int = 10,
         default_checks_per_policy: int = 10,
         **kwargs
-) -> click.Command:
+) -> None:
     @click.group()
     @click.option('--agent', type=str, default=None, help='The name of agent you want to run')
     @click.option('--seed', type=int, default=1, help='The problem to learn')
@@ -36,7 +36,7 @@ def run_cli(
             log_interval: int,
             log_dir: str,
     ) -> None:
-        agent = agent_selector(agent)
+        agent = agent_selector(agent, seed)
         ctx.obj['experiment'] = Experiment(
             agent,
             domain,
