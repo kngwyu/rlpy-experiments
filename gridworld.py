@@ -3,6 +3,7 @@ from rlpy.Domains import GridWorld
 from rlpy.Representations import iFDDK, IndependentDiscretization, Tabular
 from rlpy.Policies import eGreedy, GibbsPolicy
 import os
+from typing import Optional
 
 from common import run_cli
 
@@ -12,7 +13,7 @@ DOMAIN = GridWorld(MAZE, noise=0.3)
 MAX_STEPS = 10000
 
 
-def select_agent(name: str) -> Agent:
+def select_agent(name: Optional[str], _seed: int) -> Agent:
     tabular = Tabular(DOMAIN, discretization=20)
     if name is None or name == 'lspi':
         policy = eGreedy(tabular, epsilon=0.1)
