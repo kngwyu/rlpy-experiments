@@ -2,6 +2,10 @@
 This repo contains collections of scripts for [rlpy](https://github.com/rlpy/rlpy)
 experiments.
 
+**WARNING**
+This repository is moved to examples directory of [rlpy3](https://github.com/kngwyu/rlpy3)
+and then archived.
+
 ## Requirements
 - Python >= 3.6
 - [rlpy3](https://github.com/kngwyu/rlpy) (My Python3 oriented fork of RLPy)
